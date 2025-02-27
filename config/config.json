@@ -1,0 +1,39 @@
+{
+  "appId" : "appId",
+  "location" : "/{locale}/",
+  "baseUrl" : "./",
+  "analyseBundle" : false,
+  "port" : 8084,
+  "pages" : [
+    {
+      "appId" : "appId",
+      "location" : "uz_ru/"
+    }
+  ],
+  "routesMap" : {
+    "dev": {
+      "env": "dev",
+      "root": "",
+      "contentRoot": "",
+      "imageRoot": "",
+      "omniBase" :  "{locale}",
+      "baseUrl" : ""
+    },
+    "test": {
+      "env": "test",
+      "root": "./",
+      "contentRoot": "",
+      "imageRoot": "",
+      "omniBase" :  "{locale}",
+      "baseUrl" : ""
+    },
+    "production": {
+      "env": "prod",
+      "root": "./",
+      "contentRoot": "",
+      "imageRoot": "",
+      "omniBase" :  "{locale}",
+      "baseUrl" :  ""
+    }
+  }
+}

@@ -1,0 +1,45 @@
+<% 
+  const cards = data.cards;
+  const t = (str) => (translation[str] ? translation[str] : str);
+%>
+
+<div class="wrapper wrapper-center">
+
+  <div class="cards">
+    <div class="siema">
+      <%
+      cards.forEach(card => {
+        const name = card.name;
+        const image = `${ data.imagePathPrefix }${card.image}`;
+        const options = card.options;
+        %>
+        <div class="card">
+          <div class="card-image-container">
+            <img class="card-image" src="<%= image %>" alt="<%= name %>">
+          </div>
+          <div class="card-text">
+            <div class="card-options">
+              <% Object.keys(options).forEach((option, index) => { %>
+                  <% options[option].forEach(value => { %>
+                    <div class="option <%= option %>" name="<%= value %>"><%= value %><%= t(`${option.toUpperCase()}_UNIT`) %></div>                
+                  <% }); %>
+              <% }); %>
+            </div>
+            <p class="card-name"><%= name %></p>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+
+</div>
+<div class="wrapper wrapper-center desktop-only">
+  <div class="pagination">
+    <div class="pagination-indicator"></div>
+    <div class="">
+      <button class="prev btn"><img src="../assets/images/section-04/button-prev.png" alt=""></button>
+      <button class="next btn"><img src="../assets/images/section-04/button-next.png" alt=""></button>
+    </div>
+  </div>
+</div>
+

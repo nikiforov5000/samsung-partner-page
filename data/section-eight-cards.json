@@ -1,0 +1,62 @@
+{
+  "imagePathPrefix": "../assets/images/section-08/",
+  "textPrefix": "SECTION_EIGHT_CARD_",
+  "cards": [
+    { 
+      "name": "Сушильная машина DV9400B",
+      "image": "tumbledry.png",
+      "options": {
+        "load": ["9"]
+        }
+    },
+    { 
+      "name": "BMF холодильник RBF310G",
+      "image": "fridge.png",
+      "options": {
+        "volume": ["331"]
+        }
+    },
+    { 
+      "name": "Вертикальный пылесос BESPOKE",
+      "image": "vacuum.png",
+      "options": {
+        "power": ["210"]
+        }
+    },
+    { 
+      "name": "Духовой шкаф Infinite Line NV8300T",
+      "image": "oven.png",
+      "options": {
+        "volume": ["75"]
+        }
+    },
+    { 
+      "name": "Сушильная машина DV9400B",
+      "image": "tumbledry.png",
+      "options": {
+        "load": ["9"]
+        }
+    },
+    { 
+      "name": "BMF холодильник RBF310G",
+      "image": "fridge.png",
+      "options": {
+        "volume": ["331"]
+        }
+    },
+    { 
+      "name": "Вертикальный пылесос BESPOKE",
+      "image": "vacuum.png",
+      "options": {
+        "power": ["210"]
+        }
+    },
+    { 
+      "name": "Духовой шкаф Infinite Line NV8300T",
+      "image": "oven.png",
+      "options": {
+        "volume": ["75"]
+        }
+    }
+  ]
+}

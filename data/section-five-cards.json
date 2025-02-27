@@ -1,0 +1,10 @@
+{
+  "imagePathPrefix": "../assets/images/section-05/sec-5-card-",
+  "textPrefix": "SECTION_FIVE_CARD_",
+  "ids": [
+    { "id": "tv" },
+    { "id": "projector" },
+    { "id": "audio" },
+    { "id": "acc" }
+  ]
+}

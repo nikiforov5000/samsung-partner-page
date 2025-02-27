@@ -1,0 +1,106 @@
+{
+  "imagePathPrefix": "../assets/images/section-04/",
+  "textPrefix": "SECTION_FOUR_CARD_",
+  "cards": [
+    { 
+      "name": "Galaxy Z Flip 6",
+      "image": "galaxy-z-flip-6.png",
+      "options": {
+        "memory": ["256", "000"]
+      }
+    },
+    { 
+      "name": "Galaxy S24 FE",
+      "image": "galaxy-s24-fe.png",
+      "options": {
+        "memory": ["128"]
+      }
+    },
+    { 
+      "name": "Galaxy S24 Ultra Online Exclusive",
+      "image": "galaxy-s24-ultra-online-exclusive.png",
+      "options": {
+        "memory": ["256"]
+      }
+    },
+    { 
+      "name": "Galaxy Tab S10+ 5G",
+      "image": "galaxy-tab-s10+-5g.png",
+      "options": {
+        "memory": ["128"],
+        "screen": ["12.4"]
+      }
+    },
+    { 
+      "name": "Galaxy Z Flip 6",
+      "image": "galaxy-z-flip-6.png",
+      "options": {
+        "memory": ["256"]
+      }
+    },
+    { 
+      "name": "Galaxy S24 FE",
+      "image": "galaxy-s24-fe.png",
+      "options": {
+        "memory": ["128", "128", "128", "128", "128", "128", "128", "128"]
+      }
+    },
+    { 
+      "name": "Galaxy S24 Ultra Online Exclusive",
+      "image": "galaxy-s24-ultra-online-exclusive.png",
+      "options": {
+        "memory": ["256"]
+      }
+    },
+    { 
+      "name": "Galaxy Tab S10+ 5G",
+      "image": "galaxy-tab-s10+-5g.png",
+      "options": {
+        "memory": ["128"]
+      }
+    },
+    { 
+      "name": "Galaxy Z Flip 6",
+      "image": "galaxy-z-flip-6.png",
+      "options": {
+        "memory": ["256", "000"]
+      }
+    },
+    { 
+      "name": "Galaxy S24 FE",
+      "image": "galaxy-s24-fe.png",
+      "options": {
+        "memory": ["128"]
+      }
+    },
+    { 
+      "name": "Galaxy S24 Ultra Online Exclusive",
+      "image": "galaxy-s24-ultra-online-exclusive.png",
+      "options": {
+        "memory": ["256"]
+      }
+    },
+    { 
+      "name": "Galaxy Tab S10+ 5G",
+      "image": "galaxy-tab-s10+-5g.png",
+      "options": {
+        "memory": ["128"],
+        "screen": ["12.4"]
+      }
+    },
+    { 
+      "name": "Galaxy Z Flip 6",
+      "image": "galaxy-z-flip-6.png",
+      "options": {
+        "memory": ["256"]
+      }
+    },
+    { 
+      "name": "Galaxy S24 FE",
+      "image": "galaxy-s24-fe.png",
+      "options": {
+        "memory": ["128", "128", "128", "128", "128", "128", "128", "128"]
+      }
+    }
+  ]
+}

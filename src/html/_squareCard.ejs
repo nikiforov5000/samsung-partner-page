@@ -1,0 +1,35 @@
+
+<% 
+  const cardsData = data.ids;
+  const t = (str) => (translation[str] ? translation[str] : str);
+
+  cardsData.forEach(cardId => { 
+  const id = cardId.id;
+  const imagePath = `${ data.imagePathPrefix }${ id }.png`;
+  const text = t(`${ data.textPrefix }${ id.toUpperCase() }`);
+%>
+  <div class="col col-3 desktop-only">
+    <div class="wrapper wrapper-center ">
+      <div class="card">
+        <div class="square-card" name="<%= id %>">
+          <div class="card-image-container">
+            <a href="" class=""><img class="card-image" src="<%= imagePath %>" alt="<%= id %>"></a>
+          </div>
+        </div>
+        <div class="text-wrap">
+          <p class="card-text"><%= text %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-only">
+    <div class="card">
+      <div class="card-image-container">
+        <a href="" class=""><img class="card-image" src="<%= imagePath %>" alt="<%= id %>"></a>
+      </div>
+      <div class="text-wrap">
+        <p class="card-text"><%= text %></p>
+      </div>
+    </div>
+  </div>
+<% }); %>

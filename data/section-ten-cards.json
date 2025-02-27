@@ -1,0 +1,37 @@
+{
+  "imagePathPrefix": "../assets/images/section-10/",
+  "textPrefix": "SECTION_TEN_CARD_",
+  "cards": [
+    { 
+      "name": "870 EVO SATA SSD",
+      "image": "ssd.png",
+      "options": {
+        "ssd_formfactor": ["2.5"],
+        "memory": ["500"]
+        }
+    },
+    { 
+      "name": "Smart монитор M8",
+      "image": "monitor-m8.png",
+      "options": {
+        "screen": ["32"],
+        "resolution": ["4"]
+        }
+    },
+    { 
+      "name": "Игровой монитор Odyssey G3",
+      "image": "monitor-g3.png",
+      "options": {
+        "screen": ["27"],
+        "format": ["FHD"]
+        }
+    },
+    { 
+      "name": "Odyssey OLED G9",
+      "image": "monitor-g9.png",
+      "options": {
+        "screen": ["49"],
+        "format": ["Dual QHD"]
+        }
+    }  ]
+}

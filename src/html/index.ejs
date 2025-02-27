@@ -1,0 +1,592 @@
+<%
+const {language, appId, routeData, page} = htmlWebpackPlugin.options;
+let {imageRoot, contentRoot, omniBase, baseUrl, apiUrl} = routeData;
+
+imageRoot = imageRoot.replace('{locale}', `${page}_${language}`);
+contentRoot = contentRoot.replace('{locale}', `${page}_${language}`);
+omniBase = omniBase.replace('{locale}', `${page}_${language}`);
+baseUrl = baseUrl.replace('{locale}', `${page}_${language}`);
+
+
+imageRoot = imageRoot.replace('{appId}', appId);
+contentRoot = contentRoot.replace('{appId}', appId);
+omniBase = omniBase.replace('{appId}', appId);
+baseUrl = baseUrl.replace('{appId}', appId);
+
+const omniType = 'microsite';
+
+const translation = require(`../../data/translations/locale-${page}-${language}`);
+const _navMenuData = require("../../data/nav-menu.json");
+const _categoryTilesData = require(`../../data/category-tiles.json`);
+const _sectionThreeMenuData = require("../../data/section-three-menu.json");
+const _sectionThreeCardsData = require("../../data/section-three-cards.json");
+const _sectionFourCardsData = require("../../data/section-four-cards.json");
+const _sectionFiveMenuData = require("../../data/section-five-menu.json");
+const _sectionFiveCardsData = require("../../data/section-five-cards.json");
+const _sectionSixCardsData = require("../../data/section-six-cards.json");
+const _sectionSevenCardsData = require("../../data/section-seven-cards.json");
+const _sectionSevenMenuData = require("../../data/section-seven-menu.json");
+const _sectionEightCardsData = require("../../data/section-eight-cards.json");
+const _sectionNineCardsData = require("../../data/section-nine-cards.json");
+const _sectionNineMenuData = require("../../data/section-nine-menu.json");
+const _sectionTenCardsData = require("../../data/section-ten-cards.json");
+const _sectionSmartthingsMenuData = require("../../data/section-smartthings-menu.json");
+
+
+const t = (str) => (translation[str] ? translation[str] : str);
+
+const _faq_item = require('./_faq_item.ejs');
+const _popup = require('./_popup.ejs');
+const input = require('./_input.ejs');
+const formFields = require("../js/formFields");
+const _youtube = require('./_youtube.ejs');
+const _categoryTiles = require('./_categoryTiles.ejs');
+const _sectionMenuItem = require('./_sectionMenuItem.ejs');
+const _squareCard = require('./_squareCard.ejs');
+const _fourCardsCarousel = require('./_fourCardsCarousel.ejs');
+
+const steps = [...new Set(formFields.map(item => item.step))].length;
+
+%>
+<!DOCTYPE html>
+<html lang="<%= language %>">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <link rel="stylesheet" href="https://www.samsung.com/etc.clientlibs/samsung/clientlibs/consumer/global/clientlib-base.min.b2b46ed65d46ffd78b7dd408f6f1ed36.css" />
+</head>
+
+<body>
+  <%
+    //Duplicate translation strings which used in js scripts
+%>
+
+  <script>
+    var seceTranslationStrings = {
+      'SECTION_ONE_TITLE': "<%= t('SECTION_ONE_TITLE') %>",
+      'POPUP_SUCCESS_TITLE': "<%= t('POPUP_SUCCESS_TITLE') %>",
+      'POPUP_SUCCESS_TEXT': "<%= t('POPUP_SUCCESS_TEXT') %>",
+      'POPUP_ERROR_TITLE': "<%= t('POPUP_ERROR_TITLE') %>",
+      'BT_SEND': "<%= t('BT_SEND') %>",
+      'POPUP_ERROR_TEXT': "<%= t('POPUP_ERROR_TEXT') %>",
+      'FORM_INPUT_ERROR_REQUIRED': "<%= t('FORM_INPUT_ERROR_REQUIRED') %>",
+      'FORM_INPUT_AGREEMENT_ERROR': "<%= t('FORM_INPUT_AGREEMENT_ERROR') %>",
+      'POPUP_ERROR_SERIAL_TEXT': "<%= t('POPUP_ERROR_SERIAL_TEXT') %>",
+      'FORM_KEY': "<%= t('FORM_KEY') %>",
+      'FORM_INPUT_PHONE_FORMAT_MASK': "<%= t('FORM_INPUT_PHONE_FORMAT_MASK') %>",
+      'FORM_INPUT_PHONE_FORMAT_PATTERN': "<%= t('FORM_INPUT_PHONE_FORMAT_PATTERN') %>",
+      'POPUP_SUCCESS_AFTER_TITLE': "<%= t('POPUP_SUCCESS_AFTER_TITLE') %>",
+      'POPUP_SUCCESS_AFTER_TEXT': "<%= t('POPUP_SUCCESS_AFTER_TEXT') %>",
+    };
+    window.pageCountryId = "<%= page %>";
+    window.seceTranslationStrings = seceTranslationStrings;
+    window.seceSubmitUrl = "";
+  </script>
+  <div class="main-wrap language-<%= language %>" data-page="<%= page %>" data-language="<%= language %>" data-base-url="<%= baseUrl %>" data-omni-base="<%= omniBase %>" data-assets-image="<%= imageRoot %>" data-assets-content="<%= contentRoot %>">
+
+    <div id="page-wrapper">
+      <!-- HEADER -->
+        <section class="section section-header">
+          <div class="wrapper wrapper-between">
+            <div class="logo-container">
+              <img class="desktop-only" src="../assets/images/header/logo-samsung_pc.png" alt="">
+              <img class="mobile-only" src="../assets/images/header/logo-samsung_mo.png" alt="">
+            </div>
+            <div class="menu-container">
+              <div id="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+              <div class="nav-menu">
+                <div class="menu-items">
+                  <% _navMenuData.forEach(data => { %>
+                    <div class="text-wrap">
+                      <%- _sectionMenuItem({ prefix: "SECTION_NAV_MENU_", data, translation }) %>
+                    </div>
+                  <% }); %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      <!-- /HEADER -->
+
+
+      <!-- SECTION ONE -->
+      <section id="example" class="section section-invert section-kv">
+        <div class="wrapper">
+          <div class="col col-6">
+            <div class="text-wrap text-padded">
+              <div class="text-wrap">
+                <h1><%- t('SECTION_ONE_TITLE') %></h1>
+              </div>
+              <div class="text-wrap">
+                <p><%- t('SECTION_ONE_SUBTITLE') %></p>
+              </div>
+              <div class="buttons">
+                <a href="" class="btn-p6 btn-p6-white"><%- t('SECTION_ONE_BUTTON') %></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="../assets/images/section-01/kv_pc.png" alt="" class="background desktop-only">
+        <img src="../assets/images/section-01/kv_mo.png" alt="" class="background mobile-only">
+      </section>
+      <!-- /SECTION ONE -->
+
+      <!-- SECTION TWO -->
+      <section id="category-tiles" class="section section-category-tiles">
+        <div class="wrapper">
+          <%- _categoryTiles({data: _categoryTilesData, translation: translation}) %>
+        </div>
+      </section>
+      <!-- /SECTION TWO -->
+
+      <!-- SECTION THREE -->
+      <section class="section section-head">
+        <div class="mobile-only">
+          <div class="text-wrap text-left">
+            <h2><%- t('SECTION_THREE_TITLE') %></h2>
+          </div>
+        </div>
+        <div class="wrapper wrapper-center ">
+          <div class="col col-11 col-wrapper">
+            <div class="col col-9 desktop-only">
+              <div class="text-wrap">
+                <h2><%- t('SECTION_THREE_TITLE') %></h2>
+              </div>
+            </div>
+            <div class="col col-3 desktop-only">
+              <div class="text-wrap">
+                <div class="wrapper wrapper-reverse">
+                  <a href="#" class="btn-p6 btn btn-p6-encased"><%- t('SECTION_THREE_BUTTON') %></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        
+      <section class="section section-head">
+        <div class="mobile-only">
+          <div class="menu-items">
+            <% _sectionThreeMenuData.forEach(data => { %>
+              <div class="text-wrap">
+                <%- _sectionMenuItem({ prefix: "SECTION_THREE_MENU_", data, translation }) %>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+        <div class="wrapper wrapper-center desktop-only">
+          <div class="col col-11">
+            <div class="menu-items">
+              <% _sectionThreeMenuData.forEach(data => { %>
+                <div class="text-wrap">
+                  <%- _sectionMenuItem({ prefix: "SECTION_THREE_MENU_", data, translation }) %>
+                </div>
+              <% }); %>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="example" class="section section-narrow-kv">
+        <div class="wrapper">
+          <div class="col col-6">
+            <div class="text-wrap text-padded">
+              <h3><%- t('SECTION_THREE_BANNER_PRE') %></h3>
+              <h2><%- t('SECTION_THREE_BANNER_TITLE') %></h2>
+              <p><%- t('SECTION_THREE_BANNER_SUBTITLE') %></p>
+              <div class="buttons">
+                <a href="" class="btn-p6 btn-p6-black"><%- t('SECTION_THREE_BANNER_BUTTON') %></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="../assets/images/section-03/sec-3-banner_pc.png" alt="" class="background desktop-only">
+        <img src="../assets/images/section-03/sec-3-banner_mo.png" alt="" class="background mobile-only">
+      </section>
+
+      <div class="section section-four-cards">
+        <div class="wrapper wrapper-center">
+          <div class="col col-11 col-wrapper">
+            <%- _squareCard({ data: _sectionThreeCardsData, translation }) %>
+          </div>
+        </div>
+      </div>
+      <!-- /SECTION THREE -->
+
+      <!-- SECTION FOUR -->
+      <section class="section section-head">
+        <div class="wrapper wrapper-center ">
+          <div class="col col-11 col-wrapper">
+            <div class="col col-9">
+              <div class="text-wrap">
+                <h2><%- t('SECTION_FOUR_TITLE') %></h2>
+              </div>
+            </div>
+            <div class="col col-3 desktop-only">
+              <div class="text-wrap">
+                <div class="wrapper wrapper-reverse">
+                  <a href="#" class="btn-p6 btn btn-p6-encased"><%- t('SECTION_FOUR_BUTTON') %></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-carousel desktop-only">
+        <%- _fourCardsCarousel({ data: _sectionFourCardsData, translation }) %>
+      </section>
+      <section class="section section-carousel mobile-only">
+        <%- _fourCardsCarousel({ data: _sectionFourCardsData, translation }) %>
+      </section>
+      
+
+      <!-- /SECTION FOUR -->
+
+      <!-- SECTION FIVE -->
+      <section class="section section-head">
+        <div class="wrapper wrapper-center ">
+          <div class="col col-11 col-wrapper">
+            <div class="col col-9">
+              <div class="text-wrap">
+                <h2><%- t('SECTION_FIVE_TITLE') %></h2>
+              </div>
+            </div>
+            <div class="col col-3 desktop-only">
+              <div class="text-wrap">
+                <div class="wrapper wrapper-reverse">
+                  <a href="#" class="btn-p6 btn btn-p6-encased"><%- t('SECTION_FIVE_BUTTON') %></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-head">
+        <div class="mobile-only">
+          <div class="menu-items">
+            <% _sectionFiveMenuData.forEach(data => { %>
+              <div class="text-wrap">
+                <%- _sectionMenuItem({ prefix: "SECTION_FIVE_MENU_", data, translation }) %>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+      </section>
+        
+
+      <section id="example" class="section section-narrow-kv">
+        <div class="wrapper">
+          <div class="col col-5">
+            <div class="text-wrap text-padded">
+              <h3><%- t('SECTION_FIVE_BANNER_PRE') %></h3>
+              <h2><%- t('SECTION_FIVE_BANNER_TITLE') %></h2>
+              <div class="buttons">
+                <a href="" class="btn-p6 btn-p6-black"><%- t('SECTION_FIVE_BANNER_BUTTON') %></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="../assets/images/section-05/sec-5-banner_pc.png" alt="" class="background desktop-only">
+        <img src="../assets/images/section-05/sec-5-banner_mo.png" alt="" class="background mobile-only">
+      </section>
+
+      <div class="section section-four-cards">
+        <div class="wrapper wrapper-center">
+          <div class="col col-11 col-wrapper">
+            <%- _squareCard({ data: _sectionFiveCardsData, translation }) %>
+          </div>
+        </div>
+      </div>
+      <!-- /SECTION FIVE -->
+
+      <!-- SECTION SIX -->
+      <section class="section section-head">
+        <div class="wrapper wrapper-center ">
+          <div class="col col-11 col-wrapper">
+            <div class="col col-9">
+              <div class="text-wrap">
+                <h2><%- t('SECTION_SIX_TITLE') %></h2>
+              </div>
+            </div>
+            <div class="col col-3 desktop-only">
+              <div class="text-wrap">
+                <div class="wrapper wrapper-reverse">
+                  <a href="#" class="btn-p6 btn btn-p6-encased"><%- t('SECTION_SIX_BUTTON') %></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section section-carousel mobile-only">
+        <%- _fourCardsCarousel({ data: _sectionSixCardsData, translation }) %>
+      </section>
+      <section class="section section-carousel desktop-only">
+        <%- _fourCardsCarousel({ data: _sectionSixCardsData, translation }) %>
+      </section>
+      <!-- /SECTION SIX -->
+      
+      <!-- SECTION SEVEN -->
+      <section class="section section-head">
+        <div class="wrapper wrapper-center ">
+          <div class="col col-11 col-wrapper">
+            <div class="col col-9">
+              <div class="text-wrap">
+                <h2><%- t('SECTION_SEVEN_TITLE') %></h2>
+              </div>
+            </div>
+            <div class="col col-3 desktop-only">
+              <div class="text-wrap">
+                <div class="wrapper wrapper-reverse">
+                  <a href="#" class="btn-p6 btn btn-p6-encased"><%- t('SECTION_SEVEN_BUTTON') %></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        
+      <section class="section section-head">
+        <div class="mobile-only">
+          <div class="menu-items">
+            <% _sectionSevenMenuData.forEach(data => { %>
+              <div class="text-wrap">
+                <%- _sectionMenuItem({ prefix: "SECTION_SEVEN_MENU_", data, translation }) %>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+        <div class="wrapper wrapper-center desktop-only">
+          <div class="col col-11">
+            <div class="menu-items">
+              <% _sectionSevenMenuData.forEach(data => { %>
+                <div class="text-wrap">
+                  <%- _sectionMenuItem({ prefix: "SECTION_SEVEN_MENU_", data, translation }) %>
+                </div>
+              <% }); %>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="example" class="section section-narrow-kv">
+        <div class="wrapper">
+          <div class="col col-5">
+            <div class="text-wrap text-padded">
+              <h3><%- t('SECTION_SEVEN_BANNER_PRE') %></h3>
+              <h2><%- t('SECTION_SEVEN_BANNER_TITLE') %></h2>
+              <div class="buttons">
+                <a href="" class="btn-p6 btn-p6-black"><%- t('SECTION_SEVEN_BANNER_BUTTON') %></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="../assets/images/section-07/sec-7-banner_pc.png" alt="" class="background desktop-only">
+        <img src="../assets/images/section-07/sec-7-banner_mo.png" alt="" class="background mobile-only">
+      </section>
+
+      <div class="section section-four-cards">
+        <div class="wrapper wrapper-center">
+          <div class="col col-11 col-wrapper">
+            <%- _squareCard({ data: _sectionSevenCardsData, translation }) %>
+          </div>
+        </div>
+      </div>
+      <!-- /SECTION SEVEN -->
+
+      <!-- SECTION EIGHT -->
+      <section class="section section-head">
+        <div class="wrapper wrapper-center ">
+          <div class="col col-11 col-wrapper">
+            <div class="col col-9">
+              <div class="text-wrap">
+                <h2><%- t('SECTION_EIGHT_TITLE') %></h2>
+              </div>
+            </div>
+            <div class="col col-3 desktop-only">
+              <div class="text-wrap">
+                <div class="wrapper wrapper-reverse">
+                  <a href="#" class="btn-p6 btn btn-p6-encased"><%- t('SECTION_EIGHT_BUTTON') %></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section section-carousel desktop-only">
+        <%- _fourCardsCarousel({ data: _sectionEightCardsData, translation }) %>
+      </section>
+      <section class="section section-carousel mobile-only">
+        <%- _fourCardsCarousel({ data: _sectionEightCardsData, translation }) %>
+      </section>
+      <!-- /SECTION EIGHT -->
+
+      <!-- SECTION NINE -->
+      <section class="section section-head">
+        <div class="wrapper wrapper-center ">
+          <div class="col col-11 col-wrapper">
+            <div class="col col-9">
+              <div class="text-wrap">
+                <h2><%- t('SECTION_NINE_TITLE') %></h2>
+              </div>
+            </div>
+            <div class="col col-3 desktop-only">
+              <div class="text-wrap">
+                <div class="wrapper wrapper-reverse">
+                  <a href="#" class="btn-p6 btn btn-p6-encased"><%- t('SECTION_NINE_BUTTON') %></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        
+      <section class="section section-head">
+          <div class="mobile-only">
+            <div class="menu-items">
+              <% _sectionNineMenuData.forEach(data => { %>
+                  <%- _sectionMenuItem({ prefix: "SECTION_NINE_MENU_", data, translation }) %>
+              <% }); %>
+            </div>
+          </div>
+        <div class="wrapper wrapper-center desktop-only">
+          <div class="col col-11">
+            <div class="menu-items">
+              <% _sectionNineMenuData.forEach(data => { %>
+                <div class="text-wrap">
+                  <%- _sectionMenuItem({ prefix: "SECTION_NINE_MENU_", data, translation }) %>
+                </div>
+              <% }); %>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="example" class="section section-invert section-narrow-kv">
+        <div class="wrapper">
+          <div class="col col-5">
+            <div class="text-wrap text-padded">
+              <h3><%- t('SECTION_NINE_BANNER_PRE') %></h3>
+              <h2><%- t('SECTION_NINE_BANNER_TITLE') %></h2>
+              <div class="buttons">
+                <a href="" class="btn-p6 btn-p6-white"><%- t('SECTION_NINE_BANNER_BUTTON') %></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="../assets/images/section-09/sec-9-banner_pc.png" alt="" class="background desktop-only">
+        <img src="../assets/images/section-09/sec-9-banner_mo.png" alt="" class="background mobile-only">
+      </section>
+
+      <div class="section section-four-cards">
+        <div class="wrapper wrapper-center">
+          <div class="col col-11 col-wrapper">
+            <%- _squareCard({ data: _sectionNineCardsData, translation }) %>
+          </div>
+        </div>
+      </div>
+      <!-- /SECTION NINE -->
+
+      <!-- SECTION TEN -->
+      <section class="section section-head">
+        <div class="wrapper wrapper-center ">
+          <div class="col col-11 col-wrapper">
+            <div class="col col-9">
+              <div class="text-wrap">
+                <h2><%- t('SECTION_TEN_TITLE') %></h2>
+              </div>
+            </div>
+            <div class="col col-3 desktop-only">
+              <div class="text-wrap">
+                <div class="wrapper wrapper-reverse">
+                  <a href="#" class="btn-p6 btn btn-p6-encased"><%- t('SECTION_TEN_BUTTON') %></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-carousel desktop-only">
+        <%- _fourCardsCarousel({ data: _sectionTenCardsData, translation }) %>
+      </section>
+      <section class="section section-carousel mobile-only">
+        <%- _fourCardsCarousel({ data: _sectionTenCardsData, translation }) %>
+      </section>
+      <!-- /SECTION TEN -->
+
+      <!-- SECTION SMARTTHINGS -->
+      <section class="section section-head">
+        <div class="wrapper wrapper-center ">
+          <div class="col col-11 col-wrapper">
+            <div class="col col-9">
+              <div class="text-wrap">
+                <h2><%- t('SECTION_SMARTTHINGS_TITLE') %></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        
+      <section class="section section-head">
+        <div class="mobile-only">
+          <div class="col col-11">
+            <div class="menu-items">
+              <% _sectionSmartthingsMenuData.forEach(data => { %>
+                  <%- _sectionMenuItem({ prefix: "SECTION_SMARTTHINGS_MENU_", data, translation }) %>
+              <% }); %>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper wrapper-center desktop-only">
+          <div class="col col-11">
+            <div class="menu-items">
+              <% _sectionSmartthingsMenuData.forEach(data => { %>
+                <div class="text-wrap">
+                  <%- _sectionMenuItem({ prefix: "SECTION_SMARTTHINGS_MENU_", data, translation }) %>
+                </div>
+              <% }); %>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="example" class="section section-narrow-kv">
+        <div class="wrapper">
+          <div class="col col-5">
+            <div class="text-wrap text-padded">
+              <h2><%- t('SECTION_SMARTTHINGS_BANNER_TITLE') %></h2>
+              <div class="buttons">
+                <a href="" class="btn-p6 btn-p6-black"><%- t('SECTION_SMARTTHINGS_BANNER_BUTTON') %></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="../assets/images/section-smartthings/sec-smartthings-banner_pc.png" alt="" class="background desktop-only">
+        <img src="../assets/images/section-smartthings/sec-smartthings-banner_mo.png" alt="" class="background mobile-only">
+      </section>
+
+      <!-- /SECTION SMARTTHINGS -->
+
+      <div class="gap">
+        &nbsp;
+      </div>
+
+    </div>
+    <%- _popup({t, language, page}) %>
+  </div>
+</body>
+
+</html>

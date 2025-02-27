@@ -1,0 +1,20 @@
+
+
+<div class="tiles">
+  <% let row = ""; %>
+
+  <% data.forEach((data, index) => { 
+    const id = data.id;
+    const imagePath = `../assets/images/section-02/category-${id}.png`;
+    const t = (str) => (translation[str] ? translation[str] : str);
+    const last = (index + 1) % 8 === 0 ? "last" : "";
+    const text = t(`SECTION_TWO_TILE_${id.toUpperCase()}`);
+    %>
+    
+    <% row += (`\<div class=\"category-tile ${last}\" name=\"${id}\"\>
+      \<img src=${imagePath}\>
+      \<p>${text}\</p\>
+    \</div>`); %>
+  <% }); %>
+  <%- row %>
+</div>

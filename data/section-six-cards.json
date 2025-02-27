@@ -1,0 +1,68 @@
+{
+  "imagePathPrefix": "../assets/images/section-06/",
+  "textPrefix": "SECTION_SIX_CARD_",
+  "cards": [
+    { 
+      "name": "Neo QLED",
+      "image": "neo-qled.png",
+      "options": {
+        "resolution": ["4"],
+        "screen": ["55"]
+        }
+    },
+    { 
+      "name": "The Frame",
+      "image": "the-frame.png",
+      "options": {
+        "resolution": ["4"],
+        "screen": ["43"]
+        }
+    },
+    { 
+      "name": "Neo QLED",
+      "image": "neo-qled-1.png",
+      "options": {
+        "resolution": ["4"],
+        "screen": ["55"]
+        }
+    },
+    { 
+      "name": "Sound Tower",
+      "image": "sound-tower.png",
+      "options": {
+        "power": ["1700"]
+        }
+    },
+    { 
+      "name": "Neo QLED",
+      "image": "neo-qled.png",
+      "options": {
+        "resolution": ["4"],
+        "screen": ["55"]
+        }
+    },
+    { 
+      "name": "The Frame",
+      "image": "the-frame.png",
+      "options": {
+        "resolution": ["4"],
+        "screen": ["43"]
+        }
+    },
+    { 
+      "name": "Neo QLED",
+      "image": "neo-qled-1.png",
+      "options": {
+        "resolution": ["4"],
+        "screen": ["55"]
+        }
+    },
+    { 
+      "name": "Sound Tower",
+      "image": "sound-tower.png",
+      "options": {
+        "power": ["1700"]
+        }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "imagePathPrefix": "../assets/images/section-07/sec-7-card-",
+  "textPrefix": "SECTION_SEVEN_CARD_",
+  "ids": [
+    { "id": "fridge" },
+    { "id": "washingmachine" },
+    { "id": "microwave" },
+    { "id": "ac" }
+  ]
+}

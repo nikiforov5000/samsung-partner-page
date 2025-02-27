@@ -1,0 +1,10 @@
+{
+  "imagePathPrefix": "../assets/images/section-03/sec-3-card-",
+  "textPrefix": "SECTION_THREE_CARD_",
+  "ids": [
+    { "id": "smartphone" },
+    { "id": "tab" },
+    { "id": "watch" },
+    { "id": "buds" }
+  ]
+}

@@ -1,0 +1,17 @@
+[
+  { "id": "smartphone" },
+  { "id": "tab" },
+  { "id": "watch" },
+  { "id": "buds" },
+  { "id": "tv" },
+  { "id": "audio" },
+  { "id": "vacuum" },
+  { "id": "washingmachine" },
+  { "id": "fridge" },
+  { "id": "microwave" },
+  { "id": "ac" },
+  { "id": "oven" },
+  { "id": "stove" },
+  { "id": "monitor" },
+  { "id": "memory" }
+]

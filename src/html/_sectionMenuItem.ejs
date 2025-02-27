@@ -1,0 +1,10 @@
+<% 
+  const id = data.id;
+  const t = (str) => (translation[str] ? translation[str] : str);
+  const text = t(`${ prefix }${ id.toUpperCase() }`);
+  
+%>
+
+<div class="menu-item" name="<%= id %>">
+  <a href="" class="menu-item-text"><%= text %></a>
+</div>

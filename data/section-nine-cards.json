@@ -1,0 +1,9 @@
+{
+  "imagePathPrefix": "../assets/images/section-09/sec-9-card-",
+  "textPrefix": "SECTION_NINE_CARD_",
+  "ids": [
+    { "id": "monitor" },
+    { "id": "display" },
+    { "id": "memory" }
+  ]
+}
